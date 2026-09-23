@@ -1,0 +1,306 @@
+{
+  "categories": [
+    {
+      "id": "digital_arrest_impersonation",
+      "label": {
+        "en": "Fake police / agency 'digital arrest'",
+        "hi": "फर्जी पुलिस / एजेंसी 'डिजिटल गिरफ्तारी'",
+        "mr": "न बनावट पोलीस / एजन्सी 'डिजिटल अटक'"
+      },
+      "red_flags": {
+        "en": ["Claims to be Police, CBI, ED, Customs, TRAI or Court", "Demands you stay on video call", "Warns you not to inform family", "Demands moving money to 'safe' or 'verification' accounts"],
+        "hi": ["पुलिस, सीबीआई, ईडी, कस्टम्स या कोर्ट होने का दावा", "वीडियो कॉल पर रहने का दबाव", "परिवार को न बताने की धमकी", "'सत्यापन' खाते में पैसे ट्रांसफर करने की मांग"],
+        "mr": ["पोलीस, सीबीआई, ईडी, कस्टम्स किंवा न्यायालयाचा दावा", "व्हिडिओ कॉलवर राहण्याचा दबाव", "कुटुंबाला न सांगण्याची धमकी", "'पडताळणी' खात्यात पैसे पाठवण्याची मागणी"]
+      },
+      "safe_truth": {
+        "en": "No genuine agency arrests or investigates over a video call or asks for money to clear a case.",
+        "hi": "कोई भी असली सरकारी एजेंसी वीडियो कॉल पर गिरफ्तारी नहीं करती और न ही पैसे मांगती है।",
+        "mr": "कोणतीही खरी सरकारी एजन्सी व्हिडिओ कॉलवर अटक करत नाही किंवा पैसे मागत नाही."
+      }
+    },
+    {
+      "id": "upi_collect_or_refund",
+      "label": {
+        "en": "UPI collect request / refund trick",
+        "hi": "यूपीआई मनी ट्रांसफर / रिफंड का झांसा",
+        "mr": "UPI पैसे मिळवणे / रिफंड फसवणूक"
+      },
+      "red_flags": {
+        "en": ["Asked to enter UPI PIN to receive money", "Unexpected refund or lottery money", "High urgency to accept payment request"],
+        "hi": ["पैसे प्राप्त करने के लिए UPI PIN दर्ज करने को कहना", "अचानक रिफंड का लालच", "भुगतान स्वीकार करने की जल्दबाजी"],
+        "mr": ["पैसे मिळवण्यासाठी UPI PIN टाकण्यास सांगणे", "अचानक रिफंडचे आमिष", "पैसे स्वीकारण्यासाठी घाई करणे"]
+      },
+      "safe_truth": {
+        "en": "A UPI PIN is only needed to SEND money, NEVER to receive money.",
+        "hi": "UPI PIN केवल पैसे भेजने के लिए उपयोग होता है, प्राप्त करने के लिए कभी नहीं।",
+        "mr": "UPI PIN फक्त पैसे पाठवण्यासाठी वापरला जातो, मिळवण्यासाठी कधीही नाही."
+      }
+    },
+    {
+      "id": "fake_kyc_or_bank_alert",
+      "label": {
+        "en": "Fake KYC / bank alert",
+        "hi": "फर्जी बैंक या KYC अपडेट मैसेज",
+        "mr": "बनावट बँक किंवा KYC अपडेट संदेश"
+      },
+      "red_flags": {
+        "en": ["Threat of account/SIM being blocked today", "Link or APK download provided for KYC", "Unofficial mobile number sender"],
+        "hi": ["खाता या सिम आज ही ब्लॉक होने की धमकी", "KYC के लिए अनजान लिंक या APK डाउनलोड का निर्देश", "गैर-आधिकारिक नंबर"],
+        "mr": ["खाते किंवा सिम आजच ब्लॉक होण्याची धमकी", "KYC साठी अनोळखी लिंक किंवा APK डाउनलोडचा सल्ला", "बिगर-अधिकृत नंबर"]
+      },
+      "safe_truth": {
+        "en": "Banks never ask you to install apps or share OTPs via SMS links.",
+        "hi": "बैंक कभी भी एसएमएस लिंक से ऐप इंस्टॉल करने या ओटीपी शेयर करने को नहीं कहते।",
+        "mr": "बँका कधीही SMS लिंकवरून ॲप इन्स्टॉल करण्यास किंवा OTP शेअर करण्यास सांगत नाहीत."
+      }
+    },
+    {
+      "id": "investment_or_trading_group",
+      "label": {
+        "en": "Investment / trading group scam",
+        "hi": "निवेश या ट्रेडिंग ग्रुप का झांसा",
+        "mr": "गुंतवणूक किंवा ट्रेडिंग ग्रुप फसवणूक"
+      },
+      "red_flags": {
+        "en": ["Guaranteed high returns per day/month", "Added to a WhatsApp/Telegram tips group", "Fake profit screenshots", "Pressure to add more capital"],
+        "hi": ["गारंटीड भारी मुनाफे का दावा", "व्हाट्सएप/टेलीग्राम ग्रुप में जोड़ा गया", "फर्जी प्रॉफिट के स्क्रीनशॉट", "और पैसे जमा करने का दबाव"],
+        "mr": ["खात्रीशीर मोठा परतावा दावा", "व्हॉट्सॲप/टेलेग्राम ग्रुपमध्ये जोडले", "बनावट नफ्याचे स्क्रीनशॉट", "अजून पैसे भरण्याचा दबाव"]
+      },
+      "safe_truth": {
+        "en": "Guaranteed high returns do not exist. Always check SEBI registration.",
+        "hi": "गारंटीड भारी मुनाफा नाम की कोई चीज़ नहीं होती। हमेशा सेबी (SEBI) से जांचें।",
+        "mr": "खात्रीशीर मोठा परतावा अस्तित्वात नाही. नेहमी SEBI नोंदणी तपासा."
+      }
+    },
+    {
+      "id": "task_or_parttime_job",
+      "label": {
+        "en": "Task / part-time job scam",
+        "hi": "पार्ट-टाइम जॉब / टास्क फ्रॉड",
+        "mr": "पार्ट-टाईम जॉब / टास्क फसवणूक"
+      },
+      "red_flags": {
+        "en": ["Payment for liking YouTube videos / rating hotels", "Small initial payout followed by high deposit demands", "Prepaid tasks"],
+        "hi": ["वीडियो लाइक या रिव्यू करने पर पैसे का लालच", "शुरुआत में छोटा भुगतान फिर बड़े पैसे जमा कराने की मांग"],
+        "mr": ["व्हिडिओ लाईक किंवा रिव्ह्यू करून पैसे मिळण्याचे आमिष", "सुरवातीला थोडे पैसे नंतर मोठी रक्कम मागणे"]
+      },
+      "safe_truth": {
+        "en": "Real jobs never demand money upfront to give you tasks.",
+        "hi": "असली नौकरियां कभी भी काम देने से पहले आपसे पैसे नहीं मांगतीं।",
+        "mr": "खऱ्या नोकऱ्या काम देण्यापूर्वी कधीही पैसे मागत नाहीत."
+      }
+    },
+    {
+      "id": "boss_or_ceo_impersonation",
+      "label": {
+        "en": "Boss / senior impersonation",
+        "hi": "बॉस या अधिकारी का फर्जी मैसेज",
+        "mr": "बॉस किंवा वरिष्ठ अधिकाऱ्याचे बनावट मेसेज"
+      },
+      "red_flags": {
+        "en": ["Message from 'boss' using an unknown number", "Urgent request for gift cards or UPI transfer", "Asking not to call or verify"],
+        "hi": ["अज्ञात नंबर से बॉस होने का मैसेज", "गिफ्ट कार्ड या अर्जेंट ट्रांसफर की मांग", "कॉल न करने की हिदायत"],
+        "mr": ["अनोळखी नंबरवरून बॉस असल्याचा मेसेज", "गिफ्ट कार्ड किंवा घाईघाईत ट्रान्सफरची मागणी", "कॉल न करण्याचा सल्ला"]
+      },
+      "safe_truth": {
+        "en": "Always verify unexpected money requests directly via a known phone number or in person.",
+        "hi": "पैसे भेजने से पहले हमेशा पुराने जाने-पहचाने नंबर पर कॉल करके पुष्टि करें।",
+        "mr": "पैसे पाठवण्यापूर्वी नेहमी जुन्या ओळखीतल्या नंबरवर कॉल करून खात्री करा."
+      }
+    },
+    {
+      "id": "fake_customer_care",
+      "label": {
+        "en": "Fake customer-care number",
+        "hi": "फर्जी कस्टमर केयर नंबर",
+        "mr": "बनावट कस्टमर केअर नंबर"
+      },
+      "red_flags": {
+        "en": ["Number found via Google search / social media", "Asked to install AnyDesk or screen-share app", "Asked for card CVV to initiate refund"],
+        "hi": ["गूगल सर्च से मिला हेल्पलाइन नंबर", "स्क्रीन शेयर ऐप (AnyDesk) इंस्टॉल करने को कहना", "रिफंड के नाम पर कार्ड विवरण मांगना"],
+        "mr": ["गूगल सर्चवरून मिळालेला नंबर", "स्क्रीन शेअर ॲप इन्स्टॉल करण्यास सांगणे", "रिफंडसाठी कार्ड तपशील मागणे"]
+      },
+      "safe_truth": {
+        "en": "Only use customer care numbers listed directly inside the official app or bank website.",
+        "hi": "केवल आधिकारिक ऐप या बैंक पासबुक पर छपे नंबर पर ही संपर्क करें।",
+        "mr": "फक्त अधिकृत ॲप किंवा बँकेच्या पासबुकवर दिलेल्या नंबरवरच संपर्क करा."
+      }
+    },
+    {
+      "id": "utility_disconnection",
+      "label": {
+        "en": "Electricity / utility disconnection threat",
+        "hi": "बिजली कटने का फर्जी मैसेज",
+        "mr": "वीज बिल किंवा पाणी बिल कट मेसेज"
+      },
+      "red_flags": {
+        "en": ["Threat to disconnect electricity tonight at 9:30 PM", "Provided a personal mobile number to pay bill", "Urgent link to pay outstanding bill"],
+        "hi": ["आज रात बिजली कटने की धमकी", "बिल भुगतान के लिए व्यक्तिगत मोबाइल नंबर देना", "तुरंत लिंक से भुगतान करने की मांग"],
+        "mr": ["आज रात्री वीज कापण्याची धमकी", "बिल भरण्यासाठी वैयक्तिक मोबाईल नंबर देणे", "तातडीने लिंकवरून पैसे भरण्याचे सांगणे"]
+      },
+      "safe_truth": {
+        "en": "Electricity boards send bill alerts with consumer numbers, never personal mobile callback numbers.",
+        "hi": "बिजली विभाग व्यक्तिगत मोबाइल नंबर पर कॉल करने को कभी नहीं कहता।",
+        "mr": "वीज मंडळ वैयक्तिक मोबाईल नंबरवर कॉल करण्यास कधीही सांगत नाही."
+      }
+    },
+    {
+      "id": "courier_or_customs_parcel",
+      "label": {
+        "en": "Courier / customs parcel scam",
+        "hi": "कूरियर या कस्टम्स पार्सल फ्रॉड",
+        "mr": "कूरियर किंवा कस्टम्स पार्सल फसवणूक"
+      },
+      "red_flags": {
+        "en": ["Claims parcel contains drugs/illegal items", "Threat of police action unless fine paid immediately", "Call forwarded to 'Cyber Police Officer'"],
+        "hi": ["पार्सल में नशीले पदार्थ होने का झूठा दावा", "कस्टम शुल्क के नाम पर तुरंत पैसे की मांग", "तथाकथित पुलिस अधिकारी से बात कराना"],
+        "mr": ["पार्सलमध्ये बेकायदेशीर वस्तू असल्याचा बनावट दावा", "कस्टम्स फीच्या नावाखाली तातडीने पैसे मागणे", "तथाकथित पोलीस अधिकाऱ्याकडे कॉल ट्रान्सफर करणे"]
+      },
+      "safe_truth": {
+        "en": "Courier companies or police do not settle legal claims via phone transfers or UPI payments.",
+        "hi": "कूरियर कंपनियां फोन पर या UPI से पुलिस का केस हल नहीं करतीं।",
+        "mr": "कूरियर कंपन्या फोनवर किंवा UPI वरून पोलीस केस सोडवत नाहीत."
+      }
+    },
+    {
+      "id": "loan_app_harassment",
+      "label": {
+        "en": "Instant loan app harassment",
+        "hi": "फर्जी लोन ऐप और ब्लैकमेल",
+        "mr": "बनावट लोन ॲप आणि ब्लॅकमेल"
+      },
+      "red_flags": {
+        "en": ["Unregistered loan app demanding contact list & gallery access", "High interest rate deducted upfront", "Threats to send morphed photos to contacts"],
+        "hi": ["कॉन्टैक्ट्स और गैलरी एक्सेस मांगने वाला लोन ऐप", "बिना इजाजत तुरंत खाते में पैसे डालना", "रिश्तेदारों को मैसेज करने की धमकी"],
+        "mr": ["कॉन्टॅक्ट्स आणि गॅलरीची परवानगी मागणारे लोन ॲप", "नातेवाईकांना बनावट फोटो पाठवण्याची धमकी"]
+      },
+      "safe_truth": {
+        "en": "Use only RBI-regulated bank apps or NBFCs. Never grant contact/gallery permissions to unknown apps.",
+        "hi": "केवल आरबीआई (RBI) से मान्यता प्राप्त बैंकों से ही लोन लें।",
+        "mr": "फक्त RBI मान्यताप्राप्त बँकांकडूनच कर्ज घ्या."
+      }
+    },
+    {
+      "id": "qr_code_trick",
+      "label": {
+        "en": "QR code scanner trick",
+        "hi": "क्यूआर कोड स्कैन फ्रॉड",
+        "mr": "QR कोड स्कॅन फसवणूक"
+      },
+      "red_flags": {
+        "en": ["Asked to scan a QR code to RECEIVE money", "QR code sent on WhatsApp by buyer/seller"],
+        "hi": ["पैसे प्राप्त करने के लिए QR कोड स्कैन करने का निर्देश", "व्हाट्सएप पर नया QR कोड भेजना"],
+        "mr": ["पैसे मिळवण्यासाठी QR कोड स्कॅन करण्यास सांगणे", "व्हॉट्सॲपवर नवीन QR कोड पाठवणे"]
+      },
+      "safe_truth": {
+        "en": "Scanning a QR code ALWAYS deducts money from your account. It never credits money.",
+        "hi": "QR कोड स्कैन करने से हमेशा आपके खाते से पैसे कटते हैं, आते नहीं।",
+        "mr": "QR कोड स्कॅन केल्यावर नेहमी तुमच्या खात्यातून पैसे कट होतात, येत नाहीत."
+      }
+    },
+    {
+      "id": "remote_access_or_apk",
+      "label": {
+        "en": "Remote-access tool or unknown APK file",
+        "hi": "स्क्रीन शेयर या APK ऐप डाउनलोड फ्रॉड",
+        "mr": "स्क्रीन शेअर किंवा APK ॲप डाउनलोड फसवणूक"
+      },
+      "red_flags": {
+        "en": ["Asked to download AnyDesk, QuickSupport, TeamViewer or a .apk file", "Caller asks you to log into net banking while app is open"],
+        "hi": [".apk फ़ाइल इंस्टॉल करने की सलाह", "AnyDesk / QuickSupport ऐप डाउनलोड कराना", "स्क्रीन शेयर चालू रखकर बैंकिंग ऐप खोलने को कहना"],
+        "mr": [".apk फाईल इन्स्टॉल करण्याचा सल्ला", "AnyDesk / QuickSupport ॲप डाउनलोड करायला सांगणे", "स्क्रीन शेअर चालू ठेवून बँक ॲप उघडण्यास सांगणे"]
+      },
+      "safe_truth": {
+        "en": "Installing screen-share tools gives scammers full control over your phone and OTPs.",
+        "hi": "स्क्रीन शेयर ऐप इंस्टॉल करने से धोखेबाज़ों को आपके फोन का पूरा कंट्रोल मिल जाता है।",
+        "mr": "स्क्रीन शेअर ॲप इन्स्टॉल केल्याने फसवणूक करणाऱ्यांना फोनचा पूर्ण ताबा मिळतो."
+      }
+    },
+    {
+      "id": "lottery_or_prize",
+      "label": {
+        "en": "Lottery / prize / gift scheme",
+        "hi": "लॉटरी / इनाम / गिफ्ट स्कीम",
+        "mr": "लॉटरी / बक्षीस / भेट योजना"
+      },
+      "red_flags": {
+        "en": ["Claims you won 25 Lakh KBC or lucky draw", "Demands small 'processing fee' or GST before releasing prize"],
+        "hi": ["लाखों रुपये की लॉटरी जीतने का फर्जी दावा", "इनाम पाने के लिए पहले प्रोसेसिंग फीस या टैक्स जमा करने की शर्त"],
+        "mr": ["लाखो रुपयांची लॉटरी लागल्याचा दावा", "बक्षीस मिळण्यासाठी आधी प्रोसेसिंग फी मागणे"]
+      },
+      "safe_truth": {
+        "en": "You can never win a contest or lottery you did not enter.",
+        "hi": "जिस प्रतियोगिता में आपने भाग ही नहीं लिया, उसे आप कभी नहीं जीत सकते।",
+        "mr": "ज्या स्पर्धेत तुम्ही भागच घेतला नाही, ती तुम्ही कधीही जिंकू शकत नाही."
+      }
+    },
+    {
+      "id": "romance_or_matrimonial_investment",
+      "label": {
+        "en": "Romance / matrimonial investment scam",
+        "hi": "मेट्रीमोनियल / दोस्ती और क्रिप्टो निवेश फ्रॉड",
+        "mr": "मॅट्रिमोनियल / मैत्री आणि गुंतवणूक फसवणूक"
+      },
+      "red_flags": {
+        "en": ["Online friend/match introduces a 'secret' investment scheme", "Asks for money to clear emergency customs gift"],
+        "hi": ["ऑनलाइन दोस्त का सीक्रेट इन्वेस्टमेंट में पैसे लगाने का दबाव", "कस्टम्स में गिफ्ट फंसने के नाम पर इमरजेंसी पैसे मांगना"],
+        "mr": ["ऑनलाईन मित्राचा गुप्त गुंतवणुकीत पैसे लावण्याचा आग्रह", "कस्टम्समध्ये गिफ्ट अडकल्याचे सांगून पैसे मागणे"]
+      },
+      "safe_truth": {
+        "en": "Never transfer money or invest based on advice from someone you have only met online.",
+        "hi": "ऑनलाइन मिले किसी भी अनजान व्यक्ति के कहने पर कभी पैसे ट्रांसफर न करें।",
+        "mr": "ऑनलाईन भेटलेल्या व्यक्तीच्या सांगण्यावरून कधीही पैसे ट्रान्सफर करू नका."
+      }
+    },
+    {
+      "id": "sextortion_or_blackmail",
+      "label": {
+        "en": "Blackmail / sextortion",
+        "hi": "ब्लैकमेल / वीडियो कॉल ट्रैप",
+        "mr": "ब्लॅकमेल / व्हिडिओ कॉल फसवणूक"
+      },
+      "red_flags": {
+        "en": ["Threat to leak private photos/videos to friends", "Demand for immediate UPI payment to delete video"],
+        "hi": ["वीडियो या फोटो वायरल करने की धमकी", "वीडियो डिलीट करने के बदले तुरंत पैसों की मांग"],
+        "mr": ["व्हिडिओ किंवा फोटो व्हायरल करण्याची धमकी", "व्हिडिओ डिलीट करण्यासाठी तात्काळ पैशांची मागणी"]
+      },
+      "safe_truth": {
+        "en": "Do not pay. Block the number, save screenshot evidence, and seek immediate family or police help.",
+        "hi": "डरे नहीं और पैसे न दें। नंबर ब्लॉक करें, साक्ष्य संभालें और परिवार की मदद लें।",
+        "mr": "घाबरू नका आणि पैसे देऊ नका. नंबर ब्लॉक करा, पुरावे ठेवा आणि कुटुंबाची मदत घ्या."
+      }
+    },
+    {
+      "id": "other_suspicious",
+      "label": {
+        "en": "Other suspicious message",
+        "hi": "अन्य संदिग्ध संदेश",
+        "mr": "इतर संशयास्पद मेसेज"
+      },
+      "red_flags": {
+        "en": ["Unusual urgency", "Secrecy requested", "Unknown sender asking for sensitive action"],
+        "hi": ["असामान्य जल्दबाजी", "बात गुप्त रखने की शर्त", "अज्ञात प्रेषक द्वारा पैसों या कोड की मांग"],
+        "mr": ["असामान्य घाई", "गोपनीयतेची मागणी", "अनोळखी व्यक्तीकडून पैशांची मागणी"]
+      },
+      "safe_truth": {
+        "en": "When in doubt, pause and consult a trusted family member before taking any action.",
+        "hi": "संदेह होने पर रुकें और कदम उठाने से पहले परिवार से सलाह लें।",
+        "mr": "शंका असल्यास थांबा आणि कृती करण्यापूर्वी कुटुंबाचा सल्ला घ्या."
+      }
+    },
+    {
+      "id": "benign",
+      "label": {
+        "en": "Looks genuine (Safe)",
+        "hi": "सुरक्षित लगता है (Genuine)",
+        "mr": "सुरक्षित वाटते (Genuine)"
+      },
+      "red_flags": [],
+      "safe_truth": {
+        "en": "Message appears legitimate. Still, remember never to share OTPs or UPI PINs with anyone.",
+        "hi": "मैसेज सामान्य लगता है। फिर भी, अपना ओटीपी या यूपीआई पिन कभी किसी के साथ साझा न करें।",
+        "mr": "मेसेज सामान्य वाटतो. तरीही, तुमचा OTP किंवा UPI PIN कधीही कोणाशीही शेअर करू नका."
+      }
+    }
+  ]
+}

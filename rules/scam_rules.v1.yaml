@@ -1,0 +1,148 @@
+version: "1.0"
+rules:
+  - id: "RULE_OTP_PIN_REQUEST"
+    weight: 90
+    category_hint: "upi_collect_or_refund"
+    hard_override: true
+    explanation:
+      en: "Direct request to share OTP, CVV, or UPI PIN"
+      hi: "ओटीपी, सीवीवी या यूपीआई पिन मांगने की सीधे कोशिश"
+      mr: "OTP, CVV किंवा UPI PIN शेअर करण्याची थेट मागणी"
+    patterns:
+      en:
+        - "(?i)(share|tell|send|enter|provide)\\s+(your|the)?\\s*(otp|pin|cvv|password|upi pin)"
+        - "(?i)enter\\s+upi\\s+pin\\s+to\\s+(receive|get|claim)"
+        - "(?i)verify\\s+your\\s+otp"
+      hi:
+        - "(?i)(ओटीपी|ओ.टी.पी|पिन|सीवीवी|पासवर्ड)\\s+(बताएं|भेजें|दर्ज करें|शेयर करें)"
+        - "(?i)पैसे\\s+पाने\\s+के\\s+लिए\\s+पिन\\s+डालें"
+      mr:
+        - "(?i)(ओटीपी|पिन|सीवीवी)\\s+(सांगा|पाठवा|टाका|शेअर करा)"
+        - "(?i)पैसे\\s+मिळवण्यासाठी\\s+पिन\\s+टाका"
+
+  - id: "RULE_REMOTE_ACCESS_APK"
+    weight: 95
+    category_hint: "remote_access_or_apk"
+    hard_override: true
+    explanation:
+      en: "Request to download remote access software or APK file"
+      hi: "रिमोट एक्सेस ऐप या एपीके (.apk) फाइल डाउनलोड करने का निर्देश"
+      mr: "रिमोट ॲक्सेस ॲप किंवा APK (.apk) फाईल डाउनलोड करण्याचा सल्ला"
+    patterns:
+      en:
+        - "(?i)download\\s+.*\\.(apk|exe)"
+        - "(?i)install\\s+(anydesk|teamviewer|quicksupport|rustdesk)"
+        - "(?i)share\\s+your\\s+screen"
+      hi:
+        - "(?i)(एपीके|apk|एनीडेस्क|एनी डेस्क|क्विकसपोर्ट)\\s+(डाउनलोड|इन्स्टॉल)"
+        - "(?i)स्क्रीन\\s+शेयर\\s+करें"
+      mr:
+        - "(?i)(apk|एनीडेस्क|टीमव्ह्यूअर)\\s+(डाउनलोड|इन्स्टॉल)"
+        - "(?i)स्क्रीन\\s+शेअर\\s+करा"
+
+  - id: "RULE_SAFE_ACCOUNT_TRANSFER"
+    weight: 90
+    category_hint: "digital_arrest_impersonation"
+    hard_override: true
+    explanation:
+      en: "Demand to transfer funds to a 'safe' or 'verification' account"
+      hi: "'सुरक्षित' या 'सत्यापन' खाते में पैसे ट्रांसफर करने की मांग"
+      mr: "'सुरक्षित' किंवा 'पडताळणी' खात्यात पैसे भरण्याची मागणी"
+    patterns:
+      en:
+        - "(?i)transfer\\s+(money|funds|amount)\\s+to\\s+(safe|verification|gov|official)\\s+account"
+        - "(?i)deposit\\s+to\\s+(clear|verify)\\s+(your\\s+name|case)"
+      hi:
+        - "(?i)(सुरक्षित|वेरिफिकेशन|सरकारी)\\s+खाते\\s+में\\s+पैसे\\s+ट्रांसफर"
+        - "(?i)केस\\s+रद्द\\s+करने\\s+के\\s+लिए\\s+रकम\\s+जमा"
+      mr:
+        - "(?i)(सुरक्षित|पडताळणी)\\s+खात्यात\\s+पैसे\\s+पाठावा"
+
+  - id: "RULE_AUTHORITY_IMPERSONATION"
+    weight: 70
+    category_hint: "digital_arrest_impersonation"
+    explanation:
+      en: "Impersonation of police, CBI, ED, TRAI, Customs or Court"
+      hi: "पुलिस, सीबीआई, ईडी, कस्टम्स या कोर्ट अधिकारी होने का दावा"
+      mr: "पोलीस, सीबीआय, ईडी किंवा न्यायालयाचा अधिकारी असल्याचा बनावट दावा"
+    patterns:
+      en:
+        - "(?i)(cbi|ed|trai|rbi|customs|cyber\\s+cell|supreme\\s+court|police)\\s+(officer|notice|department|arrest)"
+        - "(?i)illegal\\s+(parcel|package|drugs|passport)\\s+found"
+        - "(?i)digital\\s+arrest"
+      hi:
+        - "(?i)(पुलिस|सीबीआई|ईडी|कस्टम्स|ट्रैफिक|कोर्ट|साइबर\\ police)\\s+(अधिकारी|नोटिस|अरेस्ट)"
+        - "(?i)डिजिटल\\s+अरेस्ट"
+        - "(?i)गैरकानूनी\\s+पार्सल"
+      mr:
+        - "(?i)(पोलीस|सीबीआय|कस्टम्स|कोर्ट)\\s+(नोटिस|अटक)"
+        - "(?i)डिजिटल\\s+अटक"
+
+  - id: "RULE_URGENCY_AND_THREAT"
+    weight: 65
+    category_hint: "fake_kyc_or_bank_alert"
+    explanation:
+      en: "Extreme urgency, deadline within hours, or blocking threats"
+      hi: "खाता तुरंत ब्लॉक होने या कुछ ही समय में कार्रवाई की धमकी"
+      mr: "खाते लगेच ब्लॉक करण्याची किंवा तातडीने कारवाईची धमकी"
+    patterns:
+      en:
+        - "(?i)(blocked|suspended|deactivated)\\s+(today|tonight|within\\s+24\\s+hrs|immediately)"
+        - "(?i)electricity\\s+will\\s+be\\s+disconnected"
+        - "(?i)last\\s+warning"
+      hi:
+        - "(?i)(आज\\s+ही|तुरंत|रात\\s+9\\s+बजे)\\s+(ब्लॉक|बंद|काट\\s+दी\\s+जाएगी)"
+        - "(?i)अंतिम\\s+चेतावनी"
+      mr:
+        - "(?i)(आजच|तात्काळ|रात्री)\\s+(ब्लॉक|बंद|कापली\\s+जाईल)"
+
+  - id: "RULE_SECRECY_CUES"
+    weight: 60
+    category_hint: "digital_arrest_impersonation"
+    explanation:
+      en: "Instruction to keep call secret and not inform family"
+      hi: "बात गुप्त रखने और परिवार को न बताने का दबाव"
+      mr: "गोपनीय ठेवण्याचा आणि कुटुंबाला न सांगण्याचा दबाव"
+    patterns:
+      en:
+        - "(?i)do\\s+not\\s+(tell|inform|share\\s+with)\\s+(family|anyone|relatives)"
+        - "(?i)strictly\\s+confidential"
+      hi:
+        - "(?i)(परिवार|किसी\\s+को)\\s+न\\s+बताएं"
+        - "(?i)गुप्त\\s+रखें"
+      mr:
+        - "(?i)(कुटुंबाला|कोणालाही)\\s+सांगू\\s+नका"
+
+  - id: "RULE_SUSPICIOUS_LINK_SHORTENER"
+    weight: 55
+    category_hint: "fake_kyc_or_bank_alert"
+    explanation:
+      en: "Contains shortened URL or suspicious unofficial domain"
+      hi: "संदिग्ध छोटा लिंक या अनधिकृत डोमेन"
+      mr: "संशयास्पद लिंक किंवा बिगर-अधिकृत डोमेन"
+    patterns:
+      en:
+        - "(?i)https?://(bit\\.ly|tinyurl\\.com|t\\.co|is\\.gd|cutt\\.ly|rb\\.gy|shorturl\\.at)/[a-zA-Z0-9]+"
+        - "(?i)https?://[a-zA-Z0-9-]+\\.(top|xyz|club|online|site|tech|work|info)/"
+      hi:
+        - "(?i)https?://(bit\\.ly|tinyurl\\.com|t\\.co|rb\\.gy)/[a-zA-Z0-9]+"
+      mr:
+        - "(?i)https?://(bit\\.ly|tinyurl\\.com|t\\.co|rb\\.gy)/[a-zA-Z0-9]+"
+
+  - id: "RULE_GUARANTEED_RETURNS"
+    weight: 75
+    category_hint: "investment_or_trading_group"
+    explanation:
+      en: "Guaranteed high daily or monthly investment returns"
+      hi: "गारंटीड रोजाना या महीने में भारी मुनाफे का लालच"
+      mr: "रोजच्या किंवा महिन्याच्या खात्रीशीर परताव्याचे आमिष"
+    patterns:
+      en:
+        - "(?i)guaranteed\\s+(return|profit|income)"
+        - "(?i)earn\\s+\\d+\\s*%\\s+(daily|per\\s+day|monthly)"
+        - "(?i)stock\\s+trading\\s+tips\\s+group"
+      hi:
+        - "(?i)गारंटीड\\s+(मुनाफा|रिटर्न|कमाई)"
+        - "(?i)रोज\\s+\\d+\\s*%\\s+कमाएं"
+      mr:
+        - "(?i)खात्रीशीर\\s+(नफा|परतावा)"

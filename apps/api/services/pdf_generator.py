@@ -1,0 +1,120 @@
+import io
+from typing import Dict, Any, List
+from reportlab.lib.pagesizes import letter
+from reportlab.lib import colors
+from reportlab.platypus import SimpleDocTemplate, Paragraph, Spacer, Table, TableStyle, HRFlowable
+from reportlab.lib.styles import getSampleStyleSheet, ParagraphStyle
+from apps.api.config import settings
+
+class PDFGenerator:
+    @staticmethod
+    def generate_evidence_pack(incident_data: Dict[str, Any], lang: str = "en") -> bytes:
+        """Generate a clean, official Evidence Pack PDF for 1930 / cybercrime.gov.in reporting."""
+        buffer = io.BytesIO()
+        doc = SimpleDocTemplate(
+            buffer,
+            pagesize=letter,
+            rightMargin=36,
+            leftMargin=36,
+            topMargin=36,
+            bottomMargin=36
+        )
+
+        styles = getSampleStyleSheet()
+        title_style = ParagraphStyle(
+            'DocTitle',
+            parent=styles['Heading1'],
+            fontSize=20,
+            leading=24,
+            textColor=colors.HexColor('#0F766E'),
+            spaceAfter=10
+        )
+        
+        subtitle_style = ParagraphStyle(
+            'DocSubtitle',
+            parent=styles['Normal'],
+            fontSize=11,
+            leading=14,
+            textColor=colors.HexColor('#475569'),
+            spaceAfter=15
+        )
+
+        section_heading = ParagraphStyle(
+            'SectionHeading',
+            parent=styles['Heading2'],
+            fontSize=14,
+            leading=18,
+            textColor=colors.HexColor('#1E293B'),
+            spaceBefore=12,
+            spaceAfter=6
+        )
+
+        body_style = ParagraphStyle(
+            'Body',
+            parent=styles['Normal'],
+            fontSize=10,
+            leading=14,
+            textColor=colors.HexColor('#334155')
+        )
+
+        elements = []
+
+        # Header Title
+        title_text = "SURAKSHA PARIVAR - INCIDENT EVIDENCE PACK"
+        if lang == "hi":
+            title_text = "सुरक्षा परिवार - साइबर अपराध साक्ष्य दस्तावेज"
+        elif lang == "mr":
+            title_text = "सुरक्षा कुटुंब - सायबर गुन्हा पुरावा दस्तऐवज"
+
+        elements.append(Paragraph(title_text, title_style))
+        elements.append(Paragraph(
+            f"Official Helpline Reference: {settings.HELPLINE_1930_NAME} ({settings.HELPLINE_1930_NUMBER}) | Portal: {settings.PORTAL_URL}",
+            subtitle_style
+        ))
+        elements.append(HRFlowable(width="100%", thickness=1, color=colors.HexColor('#CBD5E1'), spaceAfter=15))
+
+        # Incident Summary Table
+        table_data = [
+            [Paragraph("<b>Incident Date / Time:</b>", body_style), Paragraph(incident_data.get("started_at", "N/A"), body_style)],
+            [Paragraph("<b>Amount Involved:</b>", body_style), Paragraph(f"INR {incident_data.get('amount', '0')}", body_style)],
+            [Paragraph("<b>Loss Type:</b>", body_style), Paragraph(", ".join(incident_data.get("loss_types", ["Financial Scam"])), body_style)],
+            [Paragraph("<b>Transaction Ref / UTR:</b>", body_style), Paragraph(incident_data.get("utr_number", "N/A"), body_style)],
+            [Paragraph("<b>Suspect Handle / Number:</b>", body_style), Paragraph(incident_data.get("suspect_contact", "N/A"), body_style)],
+            [Paragraph("<b>Platform Used:</b>", body_style), Paragraph(incident_data.get("platform", "WhatsApp / Call"), body_style)]
+        ]
+
+        t = Table(table_data, colWidths=[160, 380])
+        t.setStyle(TableStyle([
+            ('BACKGROUND', (0, 0), (-1, -1), colors.HexColor('#F8FAFC')),
+            ('GRID', (0, 0), (-1, -1), 0.5, colors.HexColor('#E2E8F0')),
+            ('PADDING', (0, 0), (-1, -1), 6),
+        ]))
+        elements.append(t)
+        elements.append(Spacer(1, 15))
+
+        # Summary narrative
+        elements.append(Paragraph("Incident Summary (For 1930 Helpline Reader):", section_heading))
+        summary_narrative = incident_data.get("narrative", "User reported suspicious financial scam activity. Immediate bank blocking initiated.")
+        elements.append(Paragraph(summary_narrative, body_style))
+        elements.append(Spacer(1, 15))
+
+        # First 30 Minutes Completed Action Steps
+        elements.append(Paragraph("Action Steps Completed:", section_heading))
+        steps = incident_data.get("completed_steps", [
+            "Stopped communication with suspect",
+            "Contacted Bank Helpline to block card/UPI",
+            "Prepared complaint details for Cyber Crime Helpline 1930"
+        ])
+        for step in steps:
+            elements.append(Paragraph(f"• {step}", body_style))
+
+        elements.append(Spacer(1, 20))
+        elements.append(HRFlowable(width="100%", thickness=1, color=colors.HexColor('#CBD5E1'), spaceBefore=10, spaceAfter=10))
+        
+        # Legal Disclaimer Footer
+        disclaimer = "DISCLAIMER: This document is a personal evidence record auto-generated by Suraksha Parivar for the user's convenience when calling 1930 or filing on cybercrime.gov.in. It is not an official police FIR or government complaint filing."
+        elements.append(Paragraph(disclaimer, ParagraphStyle('Disc', parent=styles['Italic'], fontSize=8, leading=10, textColor=colors.HexColor('#64748B'))))
+
+        doc.build(elements)
+        buffer.seek(0)
+        return buffer.getvalue()

@@ -1,0 +1,112 @@
+{
+  "timestamp": "2026-09-23 22:03:41 UTC",
+  "total_samples": 410,
+  "scam_samples": 260,
+  "benign_samples": 150,
+  "confusion_matrix": {
+    "tp": 212,
+    "fp": 11,
+    "tn": 139,
+    "fn": 48
+  },
+  "metrics": {
+    "precision": 0.9507,
+    "recall": 0.8154,
+    "f1_score": 0.8778,
+    "benign_false_positive_rate": 0.0733,
+    "accuracy": 0.8561
+  },
+  "latency_ms": {
+    "p50": 0.0,
+    "p95": 1.0
+  },
+  "cost_per_check_usd": 0.0,
+  "per_language": {
+    "en": {
+      "total": 195,
+      "correct": 185
+    },
+    "hi": {
+      "total": 101,
+      "correct": 91
+    },
+    "mr": {
+      "total": 81,
+      "correct": 44
+    },
+    "hinglish": {
+      "total": 33,
+      "correct": 31
+    }
+  },
+  "per_category": {
+    "digital_arrest_impersonation": {
+      "total": 17,
+      "correct": 15
+    },
+    "upi_collect_or_refund": {
+      "total": 17,
+      "correct": 17
+    },
+    "fake_kyc_or_bank_alert": {
+      "total": 17,
+      "correct": 13
+    },
+    "investment_or_trading_group": {
+      "total": 17,
+      "correct": 13
+    },
+    "task_or_parttime_job": {
+      "total": 16,
+      "correct": 8
+    },
+    "boss_or_ceo_impersonation": {
+      "total": 16,
+      "correct": 14
+    },
+    "fake_customer_care": {
+      "total": 16,
+      "correct": 14
+    },
+    "utility_disconnection": {
+      "total": 16,
+      "correct": 8
+    },
+    "courier_or_customs_parcel": {
+      "total": 16,
+      "correct": 14
+    },
+    "loan_app_harassment": {
+      "total": 16,
+      "correct": 14
+    },
+    "qr_code_trick": {
+      "total": 16,
+      "correct": 14
+    },
+    "remote_access_or_apk": {
+      "total": 16,
+      "correct": 12
+    },
+    "lottery_or_prize": {
+      "total": 16,
+      "correct": 14
+    },
+    "romance_or_matrimonial_investment": {
+      "total": 16,
+      "correct": 14
+    },
+    "sextortion_or_blackmail": {
+      "total": 16,
+      "correct": 14
+    },
+    "other_suspicious": {
+      "total": 16,
+      "correct": 14
+    },
+    "benign": {
+      "total": 150,
+      "correct": 139
+    }
+  }
+}
