@@ -1,10 +1,13 @@
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
 import './globals.css';
 
 export const metadata: Metadata = {
   title: 'Suraksha Parivar - Family Anti-Scam Shield for India',
   description: 'Detect digital scams in English, Hindi, and Marathi. Alert family guardians in 1 tap and get guided first-30-minutes incident response.',
   manifest: '/manifest.json',
+};
+
+export const viewport: Viewport = {
   themeColor: '#0F766E',
 };
 
