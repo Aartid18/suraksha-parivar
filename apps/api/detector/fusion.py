@@ -15,8 +15,20 @@ class FusionEngine:
         
         kb_sim_score = min(100, len(kb_matches) * 35)
 
+        # Indicator Scoring Breakdown (Master JSON Spec)
+        indicator_scores = {
+            "otp_request": 25 if any(r["rule_id"] == "RULE_OTP_PIN_REQUEST" for r in rule_res.get("triggered_rules", [])) else 0,
+            "remote_access_request": 25 if any(r["rule_id"] == "RULE_REMOTE_ACCESS_APK" for r in rule_res.get("triggered_rules", [])) else 0,
+            "urgency": 20 if any(r["rule_id"] == "RULE_URGENCY_AND_THREAT" for r in rule_res.get("triggered_rules", [])) else 0,
+            "payment_request": 20 if any(r["rule_id"] == "RULE_SAFE_ACCOUNT_TRANSFER" for r in rule_res.get("triggered_rules", [])) else 0,
+            "suspicious_url": 20 if any(r["rule_id"] == "RULE_SUSPICIOUS_LINK_SHORTENER" for r in rule_res.get("triggered_rules", [])) else 0,
+            "impersonation": 15 if any(r["rule_id"] == "RULE_AUTHORITY_IMPERSONATION" for r in rule_res.get("triggered_rules", [])) else 0,
+        }
+
         # Weighted score blend
-        final_score = int(0.50 * rule_score + 0.40 * llm_score + 0.10 * kb_sim_score)
+        sum_indicators = sum(indicator_scores.values())
+        final_score = int(0.40 * sum_indicators + 0.40 * rule_score + 0.20 * llm_score)
+        final_score = min(100, max(0, final_score))
 
         # Apply Hard Overrides
         if hard_override:

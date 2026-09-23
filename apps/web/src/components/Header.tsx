@@ -11,8 +11,10 @@ interface HeaderProps {
   setFontScale: (scale: 'sm' | 'md' | 'lg' | 'xl') => void;
   darkMode: boolean;
   setDarkMode: (dm: boolean) => void;
-  activeTab: 'check' | 'family' | 'panic' | 'library' | 'settings';
-  setActiveTab: (tab: 'check' | 'family' | 'panic' | 'library' | 'settings') => void;
+  isSimpleMode: boolean;
+  setIsSimpleMode: (sm: boolean) => void;
+  activeTab: 'check' | 'family' | 'panic' | 'library' | 'settings' | 'simple' | 'practice';
+  setActiveTab: (tab: 'check' | 'family' | 'panic' | 'library' | 'settings' | 'simple' | 'practice') => void;
 }
 
 export const Header: React.FC<HeaderProps> = ({
@@ -22,6 +24,8 @@ export const Header: React.FC<HeaderProps> = ({
   setFontScale,
   darkMode,
   setDarkMode,
+  isSimpleMode,
+  setIsSimpleMode,
   activeTab,
   setActiveTab,
 }) => {
@@ -90,6 +94,24 @@ export const Header: React.FC<HeaderProps> = ({
             </button>
           </div>
 
+          {/* Simple Mode Toggle */}
+          <button
+            onClick={() => {
+              const nextVal = !isSimpleMode;
+              setIsSimpleMode(nextVal);
+              if (nextVal) setActiveTab('simple');
+              else setActiveTab('check');
+            }}
+            title="Toggle Simple Mode for elderly & less-educated users"
+            className={`px-3 py-1.5 rounded-xl border text-xs font-extrabold transition-all flex items-center gap-1 ${
+              isSimpleMode
+                ? 'bg-amber-500 text-white border-amber-600 shadow-md'
+                : 'bg-slate-100 dark:bg-slate-800 border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-200 hover:bg-slate-200'
+            }`}
+          >
+            <span>Simple Mode 👵</span>
+          </button>
+
           {/* Text Scale Button */}
           <button
             onClick={cycleFontScale}
@@ -153,6 +175,16 @@ export const Header: React.FC<HeaderProps> = ({
             }`}
           >
             {t.nav_library}
+          </button>
+          <button
+            onClick={() => setActiveTab('practice')}
+            className={`py-2.5 px-3 border-b-2 transition-colors whitespace-nowrap ${
+              activeTab === 'practice'
+                ? 'border-teal-700 text-teal-700 dark:border-teal-400 dark:text-teal-400 font-bold'
+                : 'border-transparent text-slate-600 dark:text-slate-400 hover:text-slate-900'
+            }`}
+          >
+            Scam Practice 🎯
           </button>
           <button
             onClick={() => setActiveTab('settings')}

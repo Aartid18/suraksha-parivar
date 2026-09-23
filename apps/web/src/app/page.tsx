@@ -8,13 +8,16 @@ import { FamilyCircleView } from '../components/FamilyCircleView';
 import { PanicFlowView } from '../components/PanicFlowView';
 import { ScamLibraryView } from '../components/ScamLibraryView';
 import { SettingsView } from '../components/SettingsView';
+import { SimpleModeView } from '../components/SimpleModeView';
+import { PracticeModeView } from '../components/PracticeModeView';
 import { Language } from '../lib/i18n';
 
 export default function Home() {
   const [lang, setLang] = useState<Language>('en');
   const [fontScale, setFontScale] = useState<'sm' | 'md' | 'lg' | 'xl'>('md');
   const [darkMode, setDarkMode] = useState(false);
-  const [activeTab, setActiveTab] = useState<'check' | 'family' | 'panic' | 'library' | 'settings'>('check');
+  const [isSimpleMode, setIsSimpleMode] = useState(false);
+  const [activeTab, setActiveTab] = useState<'check' | 'family' | 'panic' | 'library' | 'settings' | 'simple' | 'practice'>('check');
 
   const [isLoading, setIsLoading] = useState(false);
   const [checkResult, setCheckResult] = useState<any | null>(null);
@@ -49,7 +52,7 @@ export default function Home() {
       const data = await res.json();
       setCheckResult(data);
     } catch (err) {
-      // Offline / Fallback Mock calculation if API server is not running directly
+      // Fallback calculation if server endpoint is initializing
       const mockResult = {
         id: "mock_check_" + Date.now(),
         language: lang,
@@ -69,9 +72,9 @@ export default function Home() {
           }
         ],
         explanation: {
-          en: "This message exhibits strong scam patterns: urgent pressure, authority impersonation or requests for confidential information.",
-          hi: "इस संदेश में धोखाधड़ी के मजबूत लक्षण हैं: अत्यधिक जल्दबाजी, पुलिस/अधिकारी होने का फर्जी दावा या गुप्त जानकारी की मांग।",
-          mr: "या मेसेजमध्ये फसवणुकीची मजबूत लक्षणे आहेत: अतिघाई, पोलीस किंवा अधिकाऱ्याचा बनावट दावा किंवा गोपनीय माहितीची मागणी."
+          en: "This person may be trying to trick you into sending money or sharing confidential information.",
+          hi: "यह व्यक्ति आपको धोखा देकर पैसे मांगने या गुप्त जानकारी चुराने की कोशिश कर रहा है।",
+          mr: "ही व्यक्ती तुम्हाला फसवून पैसे मागण्याचा किंवा गोपनीय माहिती चोरण्याचा प्रयत्न करत आहे."
         },
         recommended_actions: [
           {
@@ -100,11 +103,29 @@ export default function Home() {
         setFontScale={setFontScale}
         darkMode={darkMode}
         setDarkMode={setDarkMode}
+        isSimpleMode={isSimpleMode}
+        setIsSimpleMode={setIsSimpleMode}
         activeTab={activeTab}
         setActiveTab={setActiveTab}
       />
 
       <main className="flex-1 max-w-6xl w-full mx-auto px-4 py-6 sm:py-8">
+        {activeTab === 'simple' && (
+          <SimpleModeView
+            lang={lang}
+            onSelectAction={(action, presetText) => {
+              if (action === 'check') {
+                setActiveTab('check');
+                if (presetText) handleAnalyze(presetText);
+              } else if (action === 'panic') {
+                setActiveTab('panic');
+              } else if (action === 'family') {
+                setActiveTab('family');
+              }
+            }}
+          />
+        )}
+
         {activeTab === 'check' && (
           checkResult ? (
             <ResultView
@@ -125,6 +146,7 @@ export default function Home() {
 
         {activeTab === 'family' && <FamilyCircleView lang={lang} />}
         {activeTab === 'panic' && <PanicFlowView lang={lang} />}
+        {activeTab === 'practice' && <PracticeModeView lang={lang} />}
         {activeTab === 'library' && (
           <ScamLibraryView
             lang={lang}
